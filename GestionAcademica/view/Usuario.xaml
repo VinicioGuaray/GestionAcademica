@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GestionAcademica.view.Usuario">
+    
+        <StackLayout>
+        <Frame BackgroundColor="Blue">
+            <Label Text="Registro de Usuarios"
+                HorizontalOptions="CenterAndExpand" FontSize="Large" TextColor="White"/>
+        </Frame>
+        <ProgressBar x:Name="progress" Progress="0"/>
+
+        <Grid>
+                <Label x:Name="lbl_progess" Text="50%"  FontSize="Large"/>
+                <Switch x:Name="sw_progress" IsToggled="False" Toggled="sw_progress_Toggled" />
+           <!-- <Label Text="Registro de usuarios" FontSize="Large" Margin="80,50,0,0" FontAttributes="Bold, Italic" />  -->
+
+        </Grid>
+        <Grid VerticalOptions="Center" HorizontalOptions="CenterAndExpand" Margin="20,0,30,50" Padding="30,0,0,0">
+            <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Entry x:Name="nombres" Text="prueba" Placeholder="Nombres"  Grid.Row="1" Grid.Column="0"/>
+                <Entry x:Name="apellidos" Text="prueba" Placeholder="Apellidos" Grid.Row="1" Grid.Column="1"/>
+                <Entry x:Name="correo"  Text="prueba" Keyboard="Email" Placeholder="Correo" Grid.Row="2" Grid.Column="0"/>
+                <Entry x:Name="cedula" Text="0987652343" MaxLength="10" Keyboard="Numeric" Placeholder="Cédula" Grid.Row="2" Grid.Column="1"/>
+            <Entry x:Name="telefono" Text="0987652343" MaxLength="10" Keyboard="Telephone" Placeholder="Teléfono" Grid.Row="3" Grid.Column="0"/>
+            <Entry x:Name="direccion" Text="prueba" Placeholder="dirección" Grid.Row="3" Grid.Column="1"/>
+            <Label x:Name="fechanacimiento" Text="Fecha Nacimiento"  Grid.Row="5" Grid.Column="0"/> 
+            <DatePicker Grid.Row="6" MinimumDate="01/01/2017" Grid.Column="0" DateSelected="DatePicker_DateSelected" Margin="0,-20,0,0" Format="dd/MM/yyyy"/>
+            <Picker x:Name="Picker" TextColor="Black" Title="Seleccionar curso" SelectedIndexChanged="Picker_SelectedIndexChanged"  Grid.Column="0" Grid.Row="4"/>
+            <Picker x:Name="PickerRol" TextColor="Black" Title="Seleccionar rol" SelectedIndexChanged="PickerRol_SelectedIndexChanged" Grid.Column="1" Grid.Row="4"/>
+            <Button Text="Guardar" x:Name="btnGuardar" Clicked="btnGuardar_Clicked"  Background="blue" VerticalOptions="CenterAndExpand"
+                HorizontalOptions="Center" TextColor="White" Grid.Column="0"   Grid.Row="7"/>
+            <Button Text="Salir" x:Name="btnSalir" Clicked="btnSalir_Clicked" Background="orange" TextColor="White" VerticalOptions="CenterAndExpand"
+                HorizontalOptions="Center" Grid.Column="1" Grid.Row="7"/>
+        </Grid>
+    </StackLayout>
+    
+</ContentPage>

@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GestionAcademica.view.Gamificacion">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="Blue">
+                <Label Text="Gamificación de Asistencia"
+                HorizontalOptions="CenterAndExpand" FontSize="Large" TextColor="White"/>
+            </Frame>
+            <Label x:Name="lblAsistencia" FontSize="20"  Margin="0,20,0,0" Grid.ColumnSpan="2" Text="Seleccione un Curso" TextColor="Black"  HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="0"/>
+            <Picker x:Name="PickerGamificacion" SelectedIndexChanged="PickerGamificacion_SelectedIndexChanged" Grid.ColumnSpan="2" Title="Seleccione un curso" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"   Grid.Row="1"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition>
+                    </ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="btnImprimir" Margin="50,-30,0,0" Text="Imprimir" IsEnabled="False" BackgroundColor="Blue" Clicked="btnImprimir_Clicked" Grid.Column="0"  Grid.Row="2" HorizontalOptions="Center" VerticalOptions="Center" TextColor="White" FontSize="15" />
+                <Button x:Name="btnSalir"  Margin="0,-30,50,0" Text="Salir" BackgroundColor="Orange" Clicked="btnSalir_Clicked"  Grid.Row="2" HorizontalOptions="Center" Grid.Column="1" VerticalOptions="Center" TextColor="White" FontSize="15"/>
+            </Grid> 
+            <Frame BackgroundColor="Salmon">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2.5*"></ColumnDefinition>
+                        <ColumnDefinition Width="2.5*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label TextColor="White" Grid.Row="0" HorizontalOptions="Center"  FontSize="20" Grid.Column="0">Nombres</Label>
+                    <Label Text="Puntuación" HorizontalOptions="Center"  FontSize="20" TextColor="White" Grid.Row="0" Grid.Column="1"/>
+                </Grid>
+            </Frame>
+            <ListView x:Name="MyListView">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout x:Name="prueba">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"></RowDefinition>
+                                        <RowDefinition Height="auto"></RowDefinition>
+                                        <RowDefinition Height="auto"></RowDefinition>
+                                        <RowDefinition Height="auto"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2.5*"></ColumnDefinition>
+                                        <ColumnDefinition Width="2.5*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Label  TextColor="Black" Text="{Binding nombres}" HorizontalOptions="Center" FontSize="20" Grid.Row="0" Grid.Column="0"/>
+                                    <Label  TextColor="Black" Text="{Binding puntuacion}" HorizontalOptions="Center" FontSize="20" Grid.Row="0" Grid.Column="1"/>
+                                </Grid>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

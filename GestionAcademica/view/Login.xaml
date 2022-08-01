@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="GestionAcademica.view.Login">
+ 
+   
+    <!--Custom View Cells-->
+
+    <ContentPage.Content>
+      
+          <StackLayout  Padding="0">           
+                        <Frame BackgroundColor="Blue">
+                            <Label Text="Bienvenido al sistema de gestión academica"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" FontSize="24" TextColor="White"/>
+                        </Frame>
+            <Image Source="colegio.png"/>
+            <Grid VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                    <ColumnDefinition>
+                    </ColumnDefinition>
+                  
+                            </Grid.ColumnDefinitions>
+                
+                <Entry  x:Name="usuario" Placeholder="ingrese el usuario" Text="jose@gmail.com" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Row="0" Grid.Column="0"/>
+                            <Entry  x:Name="password" Text="12345" Placeholder="ingrese la contraseña" IsPassword="true" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Row="1" Grid.Column="0"/>
+                <Button Text="Ingresar" x:Name="btnIngresar" Clicked="btnIngresar_Clicked"  Background="blue" VerticalOptions="CenterAndExpand"
+                HorizontalOptions="Center" TextColor="White"   Grid.Row="2"/>
+                <Button Text="Recuperar Contraseña" x:Name="btnRecuperar" Clicked="btnRecuperar_Clicked" Background="orange" TextColor="White" VerticalOptions="CenterAndExpand"
+                HorizontalOptions="Center"  Grid.Row="3"/>
+
+            </Grid>
+
+              
+                    </StackLayout>
+  
+    </ContentPage.Content>
+</ContentPage>
