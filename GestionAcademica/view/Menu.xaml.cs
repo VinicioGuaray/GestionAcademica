@@ -37,9 +37,9 @@ namespace GestionAcademica.view
             await Navigation.PushAsync(new Usuario());
         }
 
-        private void btnPerfil_Clicked(object sender, EventArgs e)
+        private async void btnPerfil_Clicked(object sender, EventArgs e)
         {
-
+            await Navigation.PushAsync(new Perfil());
         }
 
         private void btnSalir_Clicked(object sender, EventArgs e)

@@ -11,7 +11,7 @@ namespace GestionAcademica
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new view.Login());
+            MainPage = new NavigationPage(new view.Recuperar());
         }
 
         protected override void OnStart()

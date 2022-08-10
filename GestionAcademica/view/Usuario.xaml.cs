@@ -17,9 +17,9 @@ namespace GestionAcademica.view
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Usuario : ContentPage
     {
-        string url = "http://"+ModelServidor.url+"/GestionAcademico/postUsuario.php";
-        string urlCurso = "http://"+ModelServidor.url+"/GestionAcademico/postCurso.php";
-        string urlRol = "http://"+ ModelServidor.url + "/GestionAcademico/postRol.php";
+        string url = ModelServidor.url+"/postUsuario.php";
+        string urlCurso = ModelServidor.url+"/postCurso.php";
+        string urlRol =ModelServidor.url + "/postRol.php";
         private readonly HttpClient client = new HttpClient();
         private ObservableCollection<ModelCurso> _post;
         private ObservableCollection<ModelRol> _postRol;
@@ -195,16 +195,7 @@ namespace GestionAcademica.view
                         if (result.success == "true")
                         {
 
-                            await DisplayAlert("Registrado", "Se guardo correctamente", "ok");
-                            nombres.Text = "";
-                            apellidos.Text = "";
-                            correo.Text = "";
-                            cedula.Text = "";
-                            telefono.Text = "";
-                            direccion.Text = "";                            
-                           
-                            Picker.SelectedIndex = 0;
-                            PickerRol.SelectedIndex = 0;
+                            this.Clear();
                         }
                         else
                         {
@@ -292,6 +283,19 @@ namespace GestionAcademica.view
 
         } 
 
+        public async void Clear()
+        {
+            await DisplayAlert("Registrado", "Se guardo correctamente", "ok");
+            nombres.Text = "";
+            apellidos.Text = "";
+            correo.Text = "";
+            cedula.Text = "";
+            telefono.Text = "";
+            direccion.Text = "";
+
+            Picker.SelectedIndex = 0;
+            PickerRol.SelectedIndex = 0;
+        }
         private  void prueba_Clicked(object sender, EventArgs e)
 
         { 

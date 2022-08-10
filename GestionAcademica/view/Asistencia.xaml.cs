@@ -18,12 +18,12 @@ namespace GestionAcademica.view
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Asistencia : ContentPage
     {
-        string urlAsistencia = "http://"+ModelServidor.url+"/GestionAcademico/postAsistencia.php";
+        string urlAsistencia = ModelServidor.url+"/postAsistencia.php";
 
         private readonly HttpClient client = new HttpClient();
         private ObservableCollection<ModelCurso> _post;
         private ObservableCollection<ModelUsuario> _postUsuarios;
-        string urlCurso = "http://"+ModelServidor.url+"/GestionAcademico/postCurso.php";
+        string urlCurso = ModelServidor.url+"/postCurso.php";
 
         //datos de los estudiantes
         public IList<ModelUsuario> GridUsuario { get; set; }
@@ -57,7 +57,7 @@ namespace GestionAcademica.view
         //obtenemos los usuarios por curso
         private async void getUsuarios(int idCurso) 
         {
-            string urlUsuario = "http://"+ModelServidor.url+"/GestionAcademico/postUsuario.php?Curso_Id=" + idCurso;
+            string urlUsuario = ModelServidor.url+"/postUsuario.php?Curso_Id=" + idCurso;
             var content = await client.GetStringAsync(urlUsuario);
             List<ModelUsuario> postUsuario = JsonConvert.DeserializeObject<List<ModelUsuario>>(content);
             _postUsuarios = new ObservableCollection<ModelUsuario>(postUsuario);

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using GestionAcademica.Model;
 
 namespace GestionAcademica.view
 {
@@ -15,6 +16,15 @@ namespace GestionAcademica.view
         public Perfil()
         {
             InitializeComponent();
+            int id = ModelPerfil.Usuario_Id;
+            nombres.Text = ModelPerfil.Nombre;
+            apellidos.Text = ModelPerfil.Apellido;
+            cedula.Text = ModelPerfil.cedula;
+            telefono.Text = ModelPerfil.telefono;
+            direccion.Text = ModelPerfil.direccion;
+            fechanacimiento.Text = ModelPerfil.fechaNaci;
+            correo.Text = ModelPerfil.correo;
+           // fechaNaci.DateSelected += ModelPerfil.fechaNaci;
         }
 
         private void PickerRol_SelectedIndexChanged(object sender, EventArgs e)

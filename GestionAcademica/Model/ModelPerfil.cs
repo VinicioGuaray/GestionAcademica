@@ -8,8 +8,8 @@ namespace GestionAcademica.Model
    public  class ModelPerfil
     {
         public static int Usuario_Id;
-        public static string nombre;
-        public static string apellido;
+        public static string Nombre;
+        public static string Apellido;
         public static string correo;
         public static string fechaNaci;
         public static string cedula;
@@ -17,7 +17,7 @@ namespace GestionAcademica.Model
         public static string direccion;
         public static string rol;
         public static string sucess;
-        public static string urlIsrael = "130.1.3.21";
+        //public static string urlIsrael = "130.1.3.21";
 
 
     }

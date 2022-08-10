@@ -13,6 +13,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using GestionAcademica.Model;
 using System.Text;
+using System.Net.Http.Headers;
 
 namespace GestionAcademica.view
 {
@@ -21,7 +22,8 @@ namespace GestionAcademica.view
     public partial class Login : ContentPage
     {       
 
-       string url = "http://"+ModelServidor.url+"/GestionAcademico/postLogin.php";
+       //string url = ModelServidor.url+"/GestionAcademico/postLogin.php";
+        string url = ModelServidor.url + "/postLogin.php";
         private readonly HttpClient client = new HttpClient();
         private ObservableCollection<ModelPerfil> _postUsuarios;
 
@@ -70,12 +72,12 @@ namespace GestionAcademica.view
                         password = password.Text
                     };
 
-
+                   
                     Uri request = new Uri(url);
                     var Client = new HttpClient();
-                    var json = JsonConvert.SerializeObject(datos);
-                    var contenJson = new StringContent(json, Encoding.UTF8, "application/json");
-                    var response = await Client.PostAsync(request, contenJson);
+                    var json = JsonConvert.SerializeObject(datos); 
+                    var contenJson = new StringContent(json, Encoding.UTF8, "application/json");                   
+                   var response = await Client.PostAsync(request,contenJson);
                     if (response.StatusCode == HttpStatusCode.OK)
                     {
                         var contenido = await response.Content.ReadAsStringAsync();
@@ -86,7 +88,14 @@ namespace GestionAcademica.view
 
                         if (result.success == "true")
                         {
-                          int Usuario_Id = result.usuario_Id;
+                            ModelPerfil.Usuario_Id = result.usuario_Id;
+                            ModelPerfil.Nombre = result.nombre;
+                            ModelPerfil.Apellido = result.apellido;
+                            ModelPerfil.cedula = result.cedula;
+                            ModelPerfil.correo = usuario.Text;
+                            ModelPerfil.telefono = result.telefono;
+                            ModelPerfil.direccion = result.direccion;
+                            ModelPerfil.fechaNaci = result.fechaNaci;
                             perfil(result.usuario_Id);
                             await Navigation.PushAsync(new Menu());
                         }
@@ -121,7 +130,7 @@ namespace GestionAcademica.view
 
         private async void perfil(int Usuario_Id)
         {
-            string urlUsuario = "http://"+ModelServidor.url+"/GestionAcademico/postPerfil.php?Usuario_Id=" + Usuario_Id;
+            string urlUsuario = ModelServidor.url+"/postPerfil.php?Usuario_Id=" + Usuario_Id;
                 var content = await client.GetStringAsync(urlUsuario);
                 List<ModelPerfil> postUsuario = JsonConvert.DeserializeObject<List<ModelPerfil>>(content);
                 _postUsuarios = new ObservableCollection<ModelPerfil>(postUsuario);

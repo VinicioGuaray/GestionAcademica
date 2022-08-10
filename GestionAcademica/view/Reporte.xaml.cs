@@ -19,7 +19,7 @@ namespace GestionAcademica.view
         private readonly HttpClient client = new HttpClient();
         private ObservableCollection<ModelCurso> _post;
         private ObservableCollection<ReporteAsistencia> _postUsuarios;
-        string urlCurso = "http://"+ModelServidor.url+"/GestionAcademico/postCurso.php";
+        string urlCurso = ModelServidor.url+"/postCurso.php";
 
         //datos de los estudiantes
         public IList<ModelUsuario> GridUsuario { get; set; }
@@ -49,7 +49,7 @@ namespace GestionAcademica.view
 
         private async void getUsuarios(int idCurso)
         {
-            string urlUsuario = "http://"+ModelServidor.url+"/GestionAcademico/postReporte.php?Curso_Id=" + idCurso;
+            string urlUsuario =ModelServidor.url+"/postReporte.php?Curso_Id=" + idCurso;
             var content = await client.GetStringAsync(urlUsuario);
             List<ReporteAsistencia> postUsuario = JsonConvert.DeserializeObject<List<ReporteAsistencia>>(content);
             _postUsuarios = new ObservableCollection<ReporteAsistencia>(postUsuario);
