@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GestionAcademica.view.Curso"
+              NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="Blue">
+                <Label Text="Registro de Cursos"
+                HorizontalOptions="CenterAndExpand" FontSize="Large" TextColor="White"/>
+            </Frame>
+            <Grid VerticalOptions="Center" HorizontalOptions="CenterAndExpand" Margin="20,0,30,50" Padding="30,0,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                   
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Entry x:Name="Cursos"   Placeholder="Curso"  Grid.Row="1" Grid.Column="0"/>
+                <Entry x:Name="Paralelo"  Placeholder="Paralelo" Grid.Row="1" Grid.Column="1"/>
+                <Entry x:Name="Aula"    Placeholder="Aula" Grid.Row="2" Grid.Column="0"/>
+                <Entry x:Name="Ciclo" Placeholder="Ciclo"   Grid.Row="2" Grid.Column="1"/>
+                <Button Text="Guardar" x:Name="btnGuardar" Clicked="btnGuardar_Clicked"  Background="blue" VerticalOptions="CenterAndExpand"
+                HorizontalOptions="Center" TextColor="White" Grid.Column="0"   Grid.Row="3"/>
+                <Button Text="Salir" x:Name="btnSalir" Clicked="btnSalir_Clicked" Background="orange" TextColor="White" VerticalOptions="CenterAndExpand"
+                HorizontalOptions="Center" Grid.Column="1" Grid.Row="3"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

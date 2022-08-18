@@ -43,20 +43,30 @@ namespace GestionAcademica.view
             PickerGamificacion.Items.Add("--Seleccionar--");
             foreach (var item in _post)
             {
-                PickerGamificacion.Items.Add(item.Curso.ToString() + " " + item.Paralelo.ToString());
-                PickerGamificacion.SelectedIndex = 0;
+                if (ModelPerfil.rol == 1)
+                {
+                    PickerGamificacion.Items.Add(item.Curso.ToString() + " " + item.Paralelo.ToString());
+                    PickerGamificacion.SelectedIndex = 0;
+                }
+                else if (ModelPerfil.IdCurso == item.Curso_Id)
+                {
+                    PickerGamificacion.Items.Add(item.Curso.ToString() + " " + item.Paralelo.ToString());
+                    PickerGamificacion.SelectedIndex = item.Curso_Id;
+
+                }
+               
             }
 
         }
         private async void getUsuarios(int idCurso)
         {
-            string urlUsuario = ModelServidor.url+"/postReporte.php?Curso_Id=" + idCurso;
+            string urlUsuario = ModelServidor.url+"/postGamificacion.php?Curso_Id=" + idCurso;
             var content = await client.GetStringAsync(urlUsuario);
             List<ReporteAsistencia> postUsuario = JsonConvert.DeserializeObject<List<ReporteAsistencia>>(content);
             _postUsuarios = new ObservableCollection<ReporteAsistencia>(postUsuario);
             MyListView.ItemsSource = _postUsuarios;
         }
-
+         
         private void PickerGamificacion_SelectedIndexChanged(object sender, EventArgs e)
         {
             indexCurso = PickerGamificacion.SelectedIndex;
@@ -85,7 +95,7 @@ namespace GestionAcademica.view
 
             public string nombres { get; set; }
 
-            public int puntuacion { get; set; }
+            public string puntuacion { get; set; }
 
         }
 

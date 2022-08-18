@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="GestionAcademica.view.Menu">
+             x:Class="GestionAcademica.view.Menu"
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         
         <StackLayout>
@@ -11,7 +12,6 @@
                 HorizontalOptions="CenterAndExpand" FontSize="24" TextColor="White"/>
             </Frame>
             
-             <Image Source="view/img/Login.png"/>
             <Grid Margin="0,80,0,0">
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
@@ -24,12 +24,11 @@
                     <ColumnDefinition></ColumnDefinition>
                    
                 </Grid.ColumnDefinitions>
-                <Button x:Name="asistencia" Margin="10" FontSize="20"  BorderRadius="20" Text="Asistencia" Clicked="asistencia_Clicked" Grid.Column="0" TextColor="White" Grid.Row="0" BackgroundColor="#e74c3c"/>
-                <Button x:Name="Nuevo" Margin="10" BorderRadius="20" Text="Nuevo" Grid.Column="1" Grid.Row="0" Clicked="Nuevo_Clicked" FontSize="20" TextColor="White"  BackgroundColor="#2ecc71"/>
+                <Button x:Name="asistencia" IsVisible="false" Margin="10" FontSize="20"  BorderRadius="20" Text="Asistencia" Clicked="asistencia_Clicked" Grid.Column="0" TextColor="White" Grid.Row="0" BackgroundColor="#e74c3c"/>
+                <Button x:Name="Nuevo"  IsVisible="false" Margin="10" BorderRadius="20" Text="Nuevo" Grid.Column="1" Grid.Row="0" Clicked="Nuevo_Clicked" FontSize="20" TextColor="White"  BackgroundColor="#2ecc71"/>
                 <Button x:Name="Reporte" Margin="10" BorderRadius="20" Text="Reporte" Grid.Column="0" Clicked="Reporte_Clicked" Grid.Row="2" FontSize="20" TextColor="White" BackgroundColor="#e67e22"/>
                 <Button x:Name="Gamificacion" Margin="10" BorderRadius="20" Text="Gamificación" Clicked="Gamificacion_Clicked" Grid.Column="1" Grid.Row="2" FontSize="20" TextColor="White" BackgroundColor="#e67e22"/>
             </Grid>
-
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
@@ -41,7 +40,8 @@
                 <Button x:Name="btnPerfil" Clicked="btnPerfil_Clicked" TextColor="White" Text="Perfil" FontSize="20" BorderRadius="20" BackgroundColor="#3498db"  HorizontalOptions="Center" Grid.Row="0" Grid.Column="0"/>
                 <Button x:Name="btnSalir" Clicked="btnSalir_Clicked" TextColor="White" Text="Cerrar sesión" FontSize="20" BorderRadius="20" BackgroundColor="#e67e22" HorizontalOptions="Center" Grid.Row="0" Grid.Column="1"/>
             </Grid>
-            
+            <Image Source="colegio.png" x:Name="logo"  Margin="0,-410,0,0"/>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

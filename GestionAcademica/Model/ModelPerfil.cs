@@ -15,7 +15,8 @@ namespace GestionAcademica.Model
         public static string cedula;
         public static string telefono;
         public static string direccion;
-        public static string rol;
+        public static int rol;
+        public static int IdCurso;
         public static string sucess;
         //public static string urlIsrael = "130.1.3.21";
 

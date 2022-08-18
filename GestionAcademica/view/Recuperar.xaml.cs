@@ -57,7 +57,7 @@ namespace GestionAcademica.view
                 }
                 else
                 {
-                    await DisplayAlert("Error", "No se puede conectar a la base de datos", "ok");
+                    await DisplayAlert("Error", "Error en el sistema, comunicarse con el admin", "ok");
 
                 }
 

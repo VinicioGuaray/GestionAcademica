@@ -16,6 +16,7 @@ namespace GestionAcademica.Model
 
         public string ciclo { get; set; }
 
+        public string success { get; set; }
         public static explicit operator ModelCurso(int v)
         {
             throw new NotImplementedException();

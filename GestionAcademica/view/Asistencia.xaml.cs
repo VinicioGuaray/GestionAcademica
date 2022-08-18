@@ -34,8 +34,11 @@ namespace GestionAcademica.view
         {
             InitializeComponent();
             getCursos();
-          
-            
+            if (ModelPerfil.rol == 1)
+            {
+                btnNuevo.IsVisible = true;
+            }
+
         }
         //metodo para obtener los cursos
         private async void getCursos()
@@ -48,8 +51,10 @@ namespace GestionAcademica.view
             PickerAsistencia.Items.Add("--Seleccionar--");
             foreach (var item in _post)
             {
-                PickerAsistencia.Items.Add(item.Curso.ToString()+" "+item.Paralelo.ToString());
-                PickerAsistencia.SelectedIndex = 0;
+               
+                    PickerAsistencia.Items.Add(item.Curso.ToString() + " " + item.Paralelo.ToString());
+                    PickerAsistencia.SelectedIndex = 0;
+               
             }
 
         }
@@ -93,6 +98,7 @@ namespace GestionAcademica.view
                 {
 
                     await DisplayAlert("Registrado", "Se guardo correctamente", "ok");
+                    await Navigation.PushAsync(new Menu());
                    
                 }
                 else
@@ -178,6 +184,11 @@ namespace GestionAcademica.view
             var NewsItem = args.SelectedItem;
             var n = args.SelectedItemIndex;
 
+        }
+
+        private void btnNuevo_Clicked(object sender, EventArgs e)
+        {
+            
         }
     }
 }

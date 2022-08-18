@@ -41,8 +41,19 @@ namespace GestionAcademica.view
             PickerAsistencia.Items.Add("Seleccione un curso");
             foreach (var item in _post)
             {
-                PickerAsistencia.Items.Add(item.Curso.ToString() + " " + item.Paralelo.ToString());
-                PickerAsistencia.SelectedIndex = 0;
+             /*   PickerAsistencia.Items.Add(item.Curso.ToString() + " " + item.Paralelo.ToString());
+                PickerAsistencia.SelectedIndex = 0; */
+                if (ModelPerfil.rol == 1)
+                {
+                    PickerAsistencia.Items.Add(item.Curso.ToString() + " " + item.Paralelo.ToString());
+                    PickerAsistencia.SelectedIndex = 0;
+                }
+                else if (ModelPerfil.IdCurso == item.Curso_Id)
+                {
+                    PickerAsistencia.Items.Add(item.Curso.ToString() + " " + item.Paralelo.ToString());
+                    PickerAsistencia.SelectedIndex = item.Curso_Id;
+
+                }
             }
 
         }

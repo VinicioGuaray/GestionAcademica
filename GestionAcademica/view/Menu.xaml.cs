@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GestionAcademica.Model;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -15,6 +16,12 @@ namespace GestionAcademica.view
         public Menu()
         {
             InitializeComponent();
+            if (ModelPerfil.rol == 1)
+            {
+                logo.IsVisible = false;
+                asistencia.IsVisible = true;
+                Nuevo.IsVisible = true;
+            }
         }
 
         private async void asistencia_Clicked(object sender, EventArgs e)

@@ -12,9 +12,9 @@ namespace GestionAcademica.Model
         //public static string url { get; set; } = "130.1.3.204";
 
         //ip local 
-        // public static string url { get; set; } = "http:/192.168.0.103/GestionAcademico";
+        public static string url { get; set; } = "http://192.168.0.103/GestionAcademico";
 
-        public static string url { get; set; } = "http://gestoracademico.elhacker.com.ec";
+       // public static string url { get; set; } = "http:/gestoracademico.elhacker.com.ec";
     }
 
 

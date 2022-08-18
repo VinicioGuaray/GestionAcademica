@@ -1,21 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="GestionAcademica.view.Perfil">
+             x:Class="GestionAcademica.view.Perfil"
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <StackLayout>
             <Frame BackgroundColor="Blue">
                 <Label Text="Perfil de Usuario"
                 HorizontalOptions="CenterAndExpand" FontSize="Large" TextColor="White"/>
             </Frame>
-            <ProgressBar x:Name="progress" Progress="0"/>
+          <!--  <ProgressBar x:Name="progress" Progress="0"/>
 
             <Grid>
                 <Label x:Name="lbl_progess" Text="50%"  FontSize="Large"/>
                 <Switch x:Name="sw_progress" IsToggled="False" Toggled="sw_progress_Toggled" />
-                <!-- <Label Text="Registro de usuarios" FontSize="Large" Margin="80,50,0,0" FontAttributes="Bold, Italic" />  -->
+                <Label Text="Registro de usuarios" FontSize="Large" Margin="80,50,0,0" FontAttributes="Bold, Italic" />  
 
-            </Grid>
+            </Grid> -->
+            <Label FontSize="20" TextColor="Blue" VerticalOptions="Center" HorizontalOptions="CenterAndExpand">Datos del Usuario</Label>
             <Grid VerticalOptions="Center" HorizontalOptions="CenterAndExpand" Margin="20,0,30,50" Padding="30,0,0,0">
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
@@ -39,10 +41,10 @@
                 <Entry x:Name="cedula" Text="0987652343" MaxLength="10" Keyboard="Numeric" Placeholder="Cédula" Grid.Row="2" Grid.Column="1"/>
                 <Entry x:Name="telefono" Text="0987652343" MaxLength="10" Keyboard="Telephone" Placeholder="Teléfono" Grid.Row="3" Grid.Column="0"/>
                 <Entry x:Name="direccion" Text="prueba" Placeholder="dirección" Grid.Row="3" Grid.Column="1"/>
-                <Label x:Name="fechanacimiento" Text="Fecha Nacimiento"  Grid.Row="5" Grid.Column="0"/>
-                <DatePicker Grid.Row="6" x:Name="fechaNaci"  Date="{Binding fechaNaci}"  Grid.Column="0" DateSelected="DatePicker_DateSelected" Margin="0,-20,0,0" Format="dd/MM/yyyy"/>
-                <Picker x:Name="Picker" TextColor="Black" Title="Seleccionar curso" SelectedIndexChanged="Picker_SelectedIndexChanged"  Grid.Column="0" Grid.Row="4"/>
-                <Picker x:Name="PickerRol" TextColor="Black" Title="Seleccionar rol" SelectedIndexChanged="PickerRol_SelectedIndexChanged" Grid.Column="1" Grid.Row="4"/>
+                <Picker x:Name="Picker" TextColor="Black" IsVisible="false" Title="Seleccionar curso" SelectedIndexChanged="Picker_SelectedIndexChanged"  Grid.Column="0" Grid.Row="4"/>
+                <Label x:Name="fechanacimiento" Text="Fecha Nacimiento"  Grid.Row="4" Grid.Column="0"/>
+                <DatePicker Grid.Row="5" x:Name="fechaNaci"  Date="{Binding fechaNaci}"  Grid.Column="0" DateSelected="DatePicker_DateSelected" Margin="0,-50,0,0"  Format="dd/MM/yyyy"/>
+                <Picker x:Name="PickerRol" IsVisible="false" TextColor="Black" Title="Seleccionar rol" SelectedIndexChanged="PickerRol_SelectedIndexChanged" Grid.Column="1" Grid.Row="4"/>
                 <Button Text="Guardar" x:Name="btnGuardar" Clicked="btnGuardar_Clicked"  Background="blue" VerticalOptions="CenterAndExpand"
                 HorizontalOptions="Center" TextColor="White" Grid.Column="0"   Grid.Row="7"/>
                 <Button Text="Salir" x:Name="btnSalir" Clicked="btnSalir_Clicked" Background="orange" TextColor="White" VerticalOptions="CenterAndExpand"

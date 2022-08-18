@@ -96,18 +96,20 @@ namespace GestionAcademica.view
                             ModelPerfil.telefono = result.telefono;
                             ModelPerfil.direccion = result.direccion;
                             ModelPerfil.fechaNaci = result.fechaNaci;
+                            ModelPerfil.rol = result.idRol;
+                            ModelPerfil.IdCurso = result.idCurso;
                             perfil(result.usuario_Id);
                             await Navigation.PushAsync(new Menu());
                         }
                         else
                         {
-                            await DisplayAlert("Error", "Datos invalidos", "ok");
+                            await DisplayAlert("Error", "Usuario o Clave incorrectos", "ok");
 
                         }
                     }
                     else
                     {
-                        await DisplayAlert("Error", "Datos invalidos", "ok");
+                        await DisplayAlert("Error", "Error en la aplicación \n comunicarse con el admin", "ok");
                     }
 
                 }
@@ -123,9 +125,9 @@ namespace GestionAcademica.view
         }
 
 
-        private void btnRecuperar_Clicked(object sender, EventArgs e)
+        private async void btnRecuperar_Clicked(object sender, EventArgs e)
         {
-
+            await Navigation.PushAsync(new Recuperar());
         }
 
         private async void perfil(int Usuario_Id)
